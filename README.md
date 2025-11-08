@@ -9,7 +9,7 @@
 
 ## 2. 공통 포맷
 
-모든 컴포넌트는 아래 구조를 **엄격히** 유지합니다.
+모든 컴포넌트는 아래 구조를 유지합니다.
 
 ```vue
 <template>
@@ -160,9 +160,21 @@ const props = withDefaults(defineProps<Props>(), {
 ## 5. 동작 확인용 스크린샷
 
 아래 스크린샷은 변환된 컴포넌트(`E-01-instance.vue`) 실행 화면 예시입니다.
+| 컴포넌트 (.vue)| 스크린샷 |
+| ---------------------------------- | ------------------------------------------------------------ |
+| example1/E-01-instance.vue         | ![ex1\_E01instance](./img/ex1_E01instance.png)               |
+| example1/E-02-reactive.vue         | ![ex1\_E02reactive](./img/ex1_E02reactive.png)               |
+| example1/E-03-binding.vue          | ![ex1\_E03binding](./img/ex1_E03binding.png)                 |
+| example2/E-04-directives.vue       | ![ex2\_E04directives](./img/ex2_E04directives.png)           |
+| example3/ParentComponent.vue       | ![ex3\_E05ParentComponent](./img/ex3_ParentComponent.png) |
+| example4/ParentComponent.vue       | ![ex4\_E06ParentComponent](./img/ex4_ParentComponent.png) |
+| example5/E-07-Options-API.vue      | ![ex5\_E07OptionsApi](./img/ex5_E07OptionsApi.png)           |
+| example5/E-08-composition-api.vue  | ![ex5\_E08CompositionApi](./img/ex5_E08CompositionApi.png)   |
+| example5/E-09-composition-API2.vue | ![ex5\_E09CompositionApi2](./img/ex5_E09CompositionApi2.png) |
+| example6/E-10-ref.vue              | ![ex6\_E10ref](./img/ex6_E10ref.png)                         |
+| example6/E-11-reactive.vue         | ![ex6\_E11reactive](./img/ex6_E11reactive.png)               |
+| example6/E-12-ref-component.vue    | ![ex6\_E12refComponent](./img/ex6_E12refComponent.png)       |
 
-![동작 확인 스크린샷](./img/ex1_E01instance.jpg)
+
 
 ---
-
-필요하다면 이후 단계에서 실행 방법(`npm install`, `npm run dev`)이나 폴더 구조 설명도 추가할 수 있습니다.
