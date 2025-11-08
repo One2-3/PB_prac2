@@ -1,9 +1,7 @@
 <template>
   <div>
     <p>{{ message }}</p>
-    <p>{{ id }}</p>
-    <p>{{ password }}</p>
-    <button @click="sendEvent">Send Event</button>
+    <button @click="$emit('custom-event', 'Hello from child')">Send Event</button>
   </div>
 </template>
 
@@ -14,17 +12,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-const { message, id, password } = defineProps<{
-  message: string
-  id: string | number
-  password: string | number
-}>()
+import { defineProps, defineEmits } from 'vue'
 
+const props = defineProps<{ message: string }>()
 const emit = defineEmits<{
   (e: 'custom-event', payload: string): void
 }>()
-
-const sendEvent = () => {
-  emit('custom-event', 'Hello from child')
-}
 </script>
+
+<style scoped>
+</style>
