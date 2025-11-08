@@ -10,81 +10,77 @@
   </div>
 </template>
 
-<script>
-import { ref, computed, watch, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
-
+<script lang="ts">
 export default {
-  name: 'E08CompositionApi',
+  name: 'E08CompositionApi'
+}
+</script>
 
-  props: {
-    title: {
-      type: String,
-      default: 'User Information'
-    }
-  },
+<script setup lang="ts">
+import {
+  ref,
+  computed,
+  watch,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted
+} from 'vue'
 
-  setup(props) {
-    // 반응형 상태 정의
-    const firstName = ref('John');
-    const lastName = ref('Doe');
-    const greetCount = ref(0);
-    const message = ref('');
+interface Props {
+  title?: string
+}
 
-    // 계산된 속성
-    const fullName = computed(() => `${firstName.value} ${lastName.value}`);
+const { title } = withDefaults(defineProps<Props>(), {
+  title: 'User Information'
+})
 
-    // 메서드 정의
-    const greet = () => {
-      greetCount.value++;
-      message.value = `Hello, ${fullName.value}!`;
-    };
+const firstName = ref('John')
+const lastName = ref('Doe')
+const greetCount = ref(0)
+const message = ref('')
 
-    const resetGreetCount = () => {
-      greetCount.value = 0;
-    };
+const fullName = computed(() => `${firstName.value} ${lastName.value}`)
 
-    // 감시자(watch) 설정
-    watch(greetCount, (newValue, oldValue) => {
-      console.log(`Greet count changed from ${oldValue} to ${newValue}`);
-      if (newValue >= 3) {
-        message.value = "That's enough greetings for now!";
-      }
-    });
+const greet = () => {
+  greetCount.value++
+  message.value = `Hello, ${fullName.value}!`
+}
 
-    // 라이프사이클 훅 정의
-    onBeforeMount(() => {
-      console.log('beforeMount hook');
-    });
+const resetGreetCount = () => {
+  greetCount.value = 0
+}
 
-    onMounted(() => {
-      console.log('mounted hook');
-    });
-
-    onBeforeUpdate(() => {
-      console.log('beforeUpdate hook');
-    });
-
-    onUpdated(() => {
-      console.log('updated hook');
-    });
-
-    onBeforeUnmount(() => {
-      console.log('beforeUnmount hook');
-    });
-
-    onUnmounted(() => {
-      console.log('unmounted hook');
-    });
-
-    return {
-      firstName,
-      lastName,
-      greetCount,
-      message,
-      fullName,
-      greet,
-      resetGreetCount,
-    };
+watch(greetCount, (newValue, oldValue) => {
+  console.log(`Greet count changed from ${oldValue} to ${newValue}`)
+  if (newValue >= 3) {
+    message.value = "That's enough greetings for now!"
   }
-};
+})
+
+onBeforeMount(() => {
+  console.log('beforeMount hook')
+})
+
+onMounted(() => {
+  console.log('mounted hook')
+})
+
+onBeforeUpdate(() => {
+  console.log('beforeUpdate hook')
+})
+
+onUpdated(() => {
+  console.log('updated hook')
+})
+
+onBeforeUnmount(() => {
+  console.log('beforeUnmount hook')
+})
+
+onUnmounted(() => {
+  console.log('unmounted hook')
+})
 </script>

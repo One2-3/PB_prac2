@@ -1,15 +1,30 @@
-<!-- ChildComponent.vue -->
 <template>
   <div>
     <p>{{ message }}</p>
     <p>{{ id }}</p>
-    <p>{{ password }}</p> 
-    <button @click="$emit('custom-event', 'Hello from child')">Send Event</button>
+    <p>{{ password }}</p>
+    <button @click="sendEvent">Send Event</button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  props: ['message','id','password'],
-};
+  name: 'ChildComponent'
+}
+</script>
+
+<script setup lang="ts">
+const { message, id, password } = defineProps<{
+  message: string
+  id: string | number
+  password: string | number
+}>()
+
+const emit = defineEmits<{
+  (e: 'custom-event', payload: string): void
+}>()
+
+const sendEvent = () => {
+  emit('custom-event', 'Hello from child')
+}
 </script>

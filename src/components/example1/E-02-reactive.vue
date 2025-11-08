@@ -2,38 +2,37 @@
   <div>{{ fullName }}</div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: "E02Reactive",
-  data() {
-    return {
-      firstName: "Kyungsu",
-      lastName: "Lee"
-    };
-  },
-  mounted() {
-    console.log('mounted');
+  name: 'E02Reactive'
+}
+</script>
 
-    let a = 10;
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue'
 
-    setTimeout(() => {
-      console.log('setTimeout');
-      a = 20;
-      console.log(a);
-    }, 500);
+const firstName = ref('Kyungsu')
+const lastName = ref('Lee')
 
-    setTimeout(() => {
-      this.lastName = "123";
-    }, 1000);
+const fullName = computed(() => `${firstName.value} ${lastName.value}`)
 
-    setTimeout(() => {
-      this.firstName = "KSL";
-    }, 2000);
-  },
-  computed: {
-    fullName() {
-      return this.firstName + " " + this.lastName;
-    }
-  }
-};
+onMounted(() => {
+  console.log('mounted')
+
+  let a = 10
+
+  setTimeout(() => {
+    console.log('setTimeout')
+    a = 20
+    console.log(a)
+  }, 500)
+
+  setTimeout(() => {
+    lastName.value = '123'
+  }, 1000)
+
+  setTimeout(() => {
+    firstName.value = 'KSL'
+  }, 2000)
+})
 </script>

@@ -10,82 +10,81 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: 'E07OptionsApi',
+  name: 'E07OptionsApi'
+}
+</script>
 
-  props: {
-    title: {
-      type: String,
-      default: 'User Information',
-      required: false
-    }
-  },
+<script setup lang="ts">
+import {
+  ref,
+  computed,
+  watch,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted
+} from 'vue'
 
-  data() {
-    return {
-      firstName: 'John',
-      lastName: 'Doe',
-      greetCount: 0,
-      message: ''
-    };
-  },
+interface Props {
+  title?: string
+}
 
-  computed: {
-    fullName() {
-      return `${this.firstName} ${this.lastName}`;
-    }
-  },
+const { title } = withDefaults(defineProps<Props>(), {
+  title: 'User Information'
+})
 
-  methods: {
-    greet() {
-      this.greetCount++;
-      this.message = `Hello, ${this.fullName}!`;
-    },
-    resetGreetCount() {
-      this.greetCount = 0;
-    }
-  },
+const firstName = ref('John')
+const lastName = ref('Doe')
+const greetCount = ref(0)
+const message = ref('')
 
-  watch: {
-    greetCount(newValue, oldValue) {
-      console.log(`Greet count changed from ${oldValue} to ${newValue}`);
-      if (newValue >= 3) {
-        this.message = "That's enough greetings for now!";
-      }
-    }
-  },
+const fullName = computed(() => `${firstName.value} ${lastName.value}`)
 
-  beforeCreate() {
-    console.log('beforeCreate hook');
-  },
+const greet = () => {
+  greetCount.value++
+  message.value = `Hello, ${fullName.value}!`
+}
 
-  created() {
-    console.log('created hook');
-  },
+const resetGreetCount = () => {
+  greetCount.value = 0
+}
 
-  beforeMount() {
-    console.log('beforeMount hook');
-  },
-
-  mounted() {
-    console.log('mounted hook');
-  },
-
-  beforeUpdate() {
-    console.log('beforeUpdate hook');
-  },
-
-  updated() {
-    console.log('updated hook');
-  },
-
-  beforeUnmount() {
-    console.log('beforeUnmount hook');
-  },
-
-  unmounted() {
-    console.log('unmounted hook');
+watch(greetCount, (newValue, oldValue) => {
+  console.log(`Greet count changed from ${oldValue} to ${newValue}`)
+  if (newValue >= 3) {
+    message.value = "That's enough greetings for now!"
   }
-};
+})
+
+// Options API 의 beforeCreate / created 에 해당하는 타이밍
+console.log('beforeCreate hook')
+console.log('created hook')
+
+onBeforeMount(() => {
+  console.log('beforeMount hook')
+})
+
+onMounted(() => {
+  console.log('mounted hook')
+})
+
+onBeforeUpdate(() => {
+  console.log('beforeUpdate hook')
+})
+
+onUpdated(() => {
+  console.log('updated hook')
+})
+
+onBeforeUnmount(() => {
+  console.log('beforeUnmount hook')
+})
+
+onUnmounted(() => {
+  console.log('unmounted hook')
+})
 </script>
