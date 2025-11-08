@@ -168,9 +168,9 @@ const props = withDefaults(defineProps<Props>(), {
 | example2/E-04-directives.vue       | ![ex2\_E04directives](./img/ex2_E04directives.png)           |
 | example3/ParentComponent.vue       | ![ex3\_E05ParentComponent](./img/ex3_ParentComponent.png) |
 | example4/ParentComponent.vue       | ![ex4\_E06ParentComponent](./img/ex4_ParentComponent.png) |
-| example5/E-07-Options-API.vue      | ![ex5\_E07OptionsApi](./img/ex5_E07OptionsApi.png)           |
-| example5/E-08-composition-api.vue  | ![ex5\_E08CompositionApi](./img/ex5_E08CompositionApi.png)   |
-| example5/E-09-composition-API2.vue | ![ex5\_E09CompositionApi2](./img/ex5_E09CompositionApi2.png) |
+| example5/E-07-Options-API.vue      | ![ex5\_E07OptionsApi](./img/ex5_E07OptionsAPI.png)           |
+| example5/E-08-composition-api.vue  | ![ex5\_E08CompositionApi](./img/ex5_E08Compositionapi.png)   |
+| example5/E-09-composition-API2.vue | ![ex5\_E09CompositionApi2](./img/ex5_E09CompositionAPI2.png) |
 | example6/E-10-ref.vue              | ![ex6\_E10ref](./img/ex6_E10ref.png)                         |
 | example6/E-11-reactive.vue         | ![ex6\_E11reactive](./img/ex6_E11reactive.png)               |
 | example6/E-12-ref-component.vue    | ![ex6\_E12refComponent](./img/ex6_E12refComponent.png)       |
