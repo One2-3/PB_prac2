@@ -17,23 +17,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {
-  ref,
-  computed,
-  watch,
-  onBeforeMount,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated,
-  onBeforeUnmount,
-  onUnmounted
-} from 'vue'
+import { defineProps, withDefaults, ref, computed, watch, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted, onBeforeMount as onBeforeCreate, onMounted as onCreated } from 'vue'
 
 interface Props {
   title?: string
 }
-
-const { title } = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: 'User Information'
 })
 
@@ -60,7 +49,6 @@ watch(greetCount, (newValue, oldValue) => {
   }
 })
 
-// Options API 의 beforeCreate / created 에 해당하는 타이밍
 console.log('beforeCreate hook')
 console.log('created hook')
 
@@ -88,3 +76,6 @@ onUnmounted(() => {
   console.log('unmounted hook')
 })
 </script>
+
+<style scoped>
+</style>

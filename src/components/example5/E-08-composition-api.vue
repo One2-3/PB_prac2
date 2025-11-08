@@ -17,23 +17,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {
-  ref,
-  computed,
-  watch,
-  onBeforeMount,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated,
-  onBeforeUnmount,
-  onUnmounted
-} from 'vue'
+import { withDefaults, defineProps, ref, computed, watch, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue'
 
 interface Props {
   title?: string
 }
-
-const { title } = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: 'User Information'
 })
 
@@ -84,3 +73,6 @@ onUnmounted(() => {
   console.log('unmounted hook')
 })
 </script>
+
+<style scoped>
+</style>

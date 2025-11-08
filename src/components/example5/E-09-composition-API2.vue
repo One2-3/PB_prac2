@@ -17,23 +17,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {
-  ref,
-  computed,
-  watch,
-  onBeforeMount,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated,
-  onBeforeUnmount,
-  onUnmounted
-} from 'vue'
+import { withDefaults, defineProps, ref, computed, watch, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue'
 
 interface Props {
   title?: string
 }
-
-const { title } = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: 'User Information'
 })
 
@@ -60,7 +49,6 @@ watch(greetCount, (newValue, oldValue) => {
   }
 })
 
-console.log('beforeMount hook (simulated)')
 onBeforeMount(() => console.log('beforeMount hook'))
 onMounted(() => console.log('mounted hook'))
 onBeforeUpdate(() => console.log('beforeUpdate hook'))
@@ -68,3 +56,6 @@ onUpdated(() => console.log('updated hook'))
 onBeforeUnmount(() => console.log('beforeUnmount hook'))
 onUnmounted(() => console.log('unmounted hook'))
 </script>
+
+<style scoped>
+</style>
