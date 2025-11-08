@@ -173,7 +173,7 @@ const props = withDefaults(defineProps<Props>(), {
 | example5/E-09-composition-API2.vue | ![ex5\_E09CompositionApi2](./img/ex5_E09compositionAPI2.png) |
 | example6/E-10-ref.vue              | ![ex6\_E10ref](./img/ex6_E10ref.png)                         |
 | example6/E-11-reactive.vue         | ![ex6\_E11reactive](./img/ex6_E11reactive.png)               |
-| example6/E-12-ref-component.vue    | ![ex6\_E12refComponent](./img/ex6_E12refComponent.png)       |
+| example6/E-12-ref-component.vue    | ![ex6\_E12refComponent](./img/ex6_E12refcomponent.png)       |
 
 
 
